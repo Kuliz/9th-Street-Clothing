@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | 9th Street Clothing</title>
+    <link rel="icon" type="image/png" href="9th street sign.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo-container">
+                <a href="index.html"><img src="9th street sign.png" class="nav-logo"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="text-accent">Products</a></li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="contact.html" class="nav-btn">Order Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="Kicks" class="container">
+        <div class="section-title"><h2>The Kick <span class="text-accent">Vault</span></h2></div>
+        <div class="feature-grid" id="footwear-grid"></div>
+    </section>
+
+    <section id="Drip" class="container" style="background: rgba(10, 31, 68, 0.3);">
+        <div class="section-title"><h2>Hustle Threads <span class="text-accent">Coming soon...</span></h2></div>
+        <div class="feature-grid" id="clothing-grid"></div>
+    </section>
+
+    <section id="Source" class="container">
+        <div class="sourcing-banner">
+            <h2>Request a Custom Find</h2>
+            <p>If you have a photo of a specific item you want sourced globally, send it to us and we'll handle the rest.</p>
+            <a href="https://wa.me/260764462084?text=Hi%209th%20Street!%20I%20have%20an%20item%20photo%20I'd%20like%20to%20source." 
+               class="btn-primary" style="margin-top: 25px; display: inline-block;">Send Photo to WhatsApp</a>
+        </div>
+    </section>
+
+    <script>
+    const products = [
+        { name: "Yeezy slide", price: "K 200", cat: "footwear", img: "ys.png" },
+        { name: "adidas slide", price: "K 200", cat: "footwear", img: "as.png" },
+        { name: "Bayaband Crocs", price: "K 250", cat: "footwear", img: "bc.png" },
+        { name: "Classic Crocs", price: "K 300", cat: "footwear", img: "cc.png" },
+        { name: "Nike Slide", price: "K 200", cat: "footwear", img: "ns.png" },
+        { name: "Vans Checkered", price: "K 250", cat: "footwear", img: "v.png" }
+    ];
+
+    function loadStore() {
+        const fGrid = document.getElementById('footwear-grid');
+        const cGrid = document.getElementById('clothing-grid');
+        
+        products.forEach(p => {
+            const card = `
+            <div class="feature-card">
+                <div class="product-img-container" style="margin-bottom: 15px; overflow: hidden; border-radius: 8px;">
+                    <img src="${p.img}" alt="${p.name}" style="width: 100%; height: auto; display: block;">
+                </div>
+                <h3>${p.name}</h3>
+                <p class="price" style="font-weight:bold; color:var(--neon-green); margin-bottom:15px;">${p.price}</p>
+                <a href="https://wa.me/260764462084?text=I'd%20like%20to%20buy%20the%20${encodeURIComponent(p.name)}" class="btn-primary">Order via WA</a>
+            </div>`;
+            
+            if(p.cat === 'footwear') fGrid.innerHTML += card;
+            else cGrid.innerHTML += card;
+        });
+    }
+    window.onload = loadStore;
+</script>
+</body>
+</html>
