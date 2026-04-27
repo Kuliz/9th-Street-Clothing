@@ -1,0 +1,144 @@
+/* --- Global Styles & Theme --- */
+:root {
+    --bg-black: #050505;
+    --card-blue: #0a1f44;
+    --hustle-red: #e63946;
+    --clean-white: #ffffff;
+    --neon-green: #39ff14;
+    --text-gray: #cccccc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-black);
+    color: var(--clean-white);
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.text-accent { color: var(--neon-green); font-weight: bold; }
+.text-red { color: var(--hustle-red); font-weight: bold; }
+
+.container { 
+    width: 92%; 
+    max-width: 1200px; 
+    margin: auto; 
+    padding: 40px 0; 
+}
+
+/* --- Navigation (Logo Top Left) --- */
+nav {
+    background: rgba(0, 0, 0, 0.95);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--hustle-red);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between; /* Pushes logo left, links right */
+    align-items: center;
+    width: 95%;
+    margin: auto;
+}
+
+.nav-logo {
+    height: 70px;
+    width: auto;
+    filter: drop-shadow(0 0 5px var(--neon-green));
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active { color: var(--neon-green); }
+
+.nav-btn {
+    background: var(--hustle-red);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 800;
+}
+
+/* --- Hero Section --- */
+.hero {
+    padding: 100px 20px;
+    background: linear-gradient(rgba(10, 31, 68, 0.7), rgba(5, 5, 5, 1));
+    text-align: center;
+    border-bottom: 3px solid var(--hustle-red);
+}
+
+.hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); text-shadow: 3px 3px var(--hustle-red); margin-bottom: 20px; }
+
+/* --- Component Styles --- */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.feature-card, .payment-card {
+    background: var(--card-blue);
+    padding: 30px;
+    border-radius: 12px;
+    border-bottom: 4px solid var(--hustle-red);
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.feature-card:hover, .payment-card:hover {
+    transform: translateY(-10px);
+    border-bottom-color: var(--neon-green);
+    box-shadow: 0 10px 20px rgba(57, 255, 20, 0.1);
+}
+
+.btn-primary { 
+    background: var(--neon-green); 
+    color: black !important; 
+    padding: 12px 25px; 
+    border-radius: 5px; 
+    font-weight: 800; 
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* --- Payment Page Specifics --- */
+.payment-logo { height: 60px; margin-bottom: 15px; }
+.acc-number { font-family: monospace; font-size: 1.2rem; color: var(--neon-green); display: block; margin-top: 10px; }
+
+/* --- Footer --- */
+footer {
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid var(--card-blue);
+    font-size: 0.9rem;
+    color: var(--text-gray);
+}
+
+/* --- Responsive Fixes --- */
+@media (max-width: 768px) {
+    .nav-links { gap: 10px; }
+    .nav-links a { font-size: 0.75rem; }
+    .nav-logo { height: 50px; }
+}

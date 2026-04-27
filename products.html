@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | 9th Street Clothing</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html"><img src="9th street sign.png" class="nav-logo"></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="payments.html">Payments</a></li>
+                <li><a href="contact.html" class="nav-btn">Order Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="container">
+        <div class="section-title" style="text-align:center; margin-bottom: 40px;">
+            <h2>The Kick <span class="text-accent">Vault</span></h2>
+        </div>
+        <div class="feature-grid" id="footwear-grid"></div>
+    </section>
+
+    <script>
+        const products = [
+            { name: "Yeezy slide", price: "K 200", cat: "footwear", img: "ys.png" },
+            { name: "Classic crocs", price: "K 300", cat: "footwear", img: "cc.png" },
+            { name: "Bayaband crocs", price: "K 250", cat: "footwear", img: "bc.png" },
+            { name: "Adidas adilette", price: "K 250", cat: "footwear", img: "as.png" },
+            { name: "Nike benassi", price: "K 250", cat: "footwear", img: "a1.png" },
+            { name: "Air jordan 1", price: "K 450", cat: "footwear", img: "j1h.png" },
+            { name: "Air force 1", price: "K 425", cat: "footwear", img: "a1.png" },
+            { name: "Vans off the wall", price: "K 250", cat: "footwear", img: "v.png" },
+            { name: "Air jordan 11", price: "K 650", cat: "footwear", img: "aj11.png" }
+            // ... Add others as needed
+        ];
+
+        function loadStore() {
+            const fGrid = document.getElementById('footwear-grid');
+            products.forEach(p => {
+                fGrid.innerHTML += `
+                <div class="feature-card">
+                    <img src="${p.img}" alt="${p.name}" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+                    <h3>${p.name}</h3>
+                    <p class="text-accent" style="margin-bottom: 15px;">${p.price}</p>
+                    <a href="https://wa.me/260764462084?text=I'd like to buy ${p.name}" class="btn-primary">Order via WA</a>
+                </div>`;
+            });
+        }
+        window.onload = loadStore;
+    </script>
+</body>
+</html>
