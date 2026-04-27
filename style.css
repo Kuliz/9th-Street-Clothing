@@ -17,20 +17,13 @@ body {
     background-color: var(--dark-blue);
     color: var(--clean-white);
     font-family: 'Segoe UI', Roboto, sans-serif;
-    line-height: 1.6;
     overflow-x: hidden;
 }
 
 .text-accent { color: var(--neon-green); font-weight: bold; }
+.container { width: 90%; max-width: 1200px; margin: auto; padding: 40px 0; }
 
-.container { 
-    width: 90%; 
-    max-width: 1200px; 
-    margin: auto; 
-    padding: 60px 0; 
-}
-
-/* --- Navigation --- */
+/* --- Navigation (Logo Top-Left) --- */
 nav {
     background: rgba(5, 10, 20, 0.98);
     padding: 10px 0;
@@ -42,14 +35,14 @@ nav {
 
 .nav-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Keeps logo left, links right */
     align-items: center;
-    width: 90%;
+    width: 95%;
     margin: auto;
 }
 
 .nav-logo {
-    height: 70px; /* Adjusted for mobile/PC balance */
+    height: 60px; /* Standard size for mobile/PC */
     width: auto;
     filter: drop-shadow(0 0 8px var(--neon-green));
 }
@@ -58,75 +51,39 @@ nav {
     display: flex;
     list-style: none;
     align-items: center;
+    gap: 15px;
 }
-
-.nav-links li { margin-left: 20px; }
 
 .nav-links a {
     color: white;
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     text-decoration: none;
 }
 
 .nav-btn {
     background: var(--hustle-red);
-    color: white !important;
-    padding: 8px 16px;
+    padding: 8px 12px;
     border-radius: 5px;
-    font-weight: 800;
+    font-size: 0.75rem !important;
 }
 
 /* --- Hero Section --- */
 .hero {
-    min-height: 80vh;
-    background: linear-gradient(rgba(10, 31, 68, 0.8), rgba(5, 10, 20, 0.9));
+    min-height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 20px;
-    border-bottom: 5px solid var(--hustle-red);
+    background: linear-gradient(rgba(10, 31, 68, 0.8), rgba(5, 10, 20, 0.9));
 }
 
-.hero h1 { 
-    font-size: clamp(2.5rem, 10vw, 4rem); 
-    color: white; 
-    text-shadow: 3px 3px var(--hustle-red); 
-    margin-bottom: 15px; 
-}
+.hero h1 { font-size: clamp(2rem, 8vw, 3.5rem); margin-bottom: 10px; }
+.hero p { font-size: 1rem; margin-bottom: 20px; max-width: 600px; }
 
-.hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 30px auto; }
-
-.hero-btns { 
-    display: flex; 
-    flex-wrap: wrap; 
-    justify-content: center; 
-    gap: 15px; 
-}
-
-.btn-primary { 
-    background: var(--neon-green); 
-    color: var(--dark-blue) !important; 
-    padding: 12px 25px; 
-    border-radius: 5px; 
-    font-weight: 800; 
-    text-decoration: none;
-}
-
-.btn-secondary { 
-    border: 2px solid var(--clean-white); 
-    color: var(--clean-white); 
-    padding: 10px 23px; 
-    border-radius: 5px; 
-    text-decoration: none;
-}
-
-/* --- Grid & Cards --- */
-.section-title { text-align: center; margin-bottom: 40px; }
-.section-title h2 { font-size: 2.2rem; text-transform: uppercase; }
-
+/* --- Grid & Cards (Fixes Overlapping) --- */
 .feature-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -135,87 +92,37 @@ nav {
 
 .feature-card {
     background: var(--royal-blue);
-    padding: 30px;
-    border-radius: 15px;
+    padding: 25px;
+    border-radius: 12px;
     border-left: 4px solid var(--hustle-red);
     text-align: center;
-    height: 100%; /* Ensures cards in a row are same height */
+    word-wrap: break-word; /* Prevents text spill-out */
 }
 
-.feature-card i { color: var(--neon-green); font-size: 3rem; margin-bottom: 15px; }
+.feature-card i { font-size: 2.5rem; color: var(--neon-green); margin-bottom: 15px; }
 
-/* Product Images Fix */
+/* Product Images */
 .product-img-container img {
     width: 100%;
-    height: 250px;
+    height: 220px;
     object-fit: cover;
     border-radius: 8px;
 }
 
-/* --- Floating WhatsApp --- */
-.whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25d366;
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    z-index: 2000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-/* --- MOBILE SPECIFIC FIXES --- */
-
-@media (max-width: 768px) {
-    /* Stack Nav */
-    .nav-container {
-        flex-direction: column;
-        gap: 10px;
-    }
-
+/* --- Mobile Specific Fixes --- */
+@media (max-width: 600px) {
     .nav-links {
-        justify-content: center;
-        flex-wrap: wrap;
-        width: 100%;
+        gap: 8px;
+    }
+    
+    .nav-links a {
+        font-size: 0.7rem;
     }
 
-    .nav-links li {
-        margin: 5px 10px;
-    }
-
-    /* Fix Overlapping on About Page */
-    section .feature-grid[style*="grid-template-columns: 1fr 1fr"] {
-        grid-template-columns: 1fr !important;
-        text-align: center !important;
-    }
-
-    /* Fix Contact Page Card Sizing */
+    .hero h1 { font-size: 2rem; }
+    
+    /* Forces columns to stack on about/contact pages */
     .feature-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
     }
-
-    .feature-card {
-        padding: 20px;
-    }
-
-    .feature-card h3 {
-        font-size: 1.2rem;
-    }
-
-    .feature-card p {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero h1 { font-size: 2.2rem; }
-    .section-title h2 { font-size: 1.8rem; }
 }
