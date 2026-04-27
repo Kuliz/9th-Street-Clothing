@@ -23,7 +23,6 @@ body {
 
 .text-accent { color: var(--neon-green); font-weight: bold; }
 
-/* Responsive Container */
 .container { 
     width: 90%; 
     max-width: 1200px; 
@@ -50,10 +49,9 @@ nav {
 }
 
 .nav-logo {
-    height: 80px; /* Scaled down slightly for better fit */
+    height: 70px; /* Adjusted for mobile/PC balance */
     width: auto;
     filter: drop-shadow(0 0 8px var(--neon-green));
-    transition: 0.3s;
 }
 
 .nav-links {
@@ -70,10 +68,7 @@ nav {
     text-transform: uppercase;
     font-size: 0.85rem;
     text-decoration: none;
-    transition: 0.3s;
 }
-
-.nav-links a:hover { color: var(--neon-green); }
 
 .nav-btn {
     background: var(--hustle-red);
@@ -85,18 +80,18 @@ nav {
 
 /* --- Hero Section --- */
 .hero {
-    min-height: 70vh;
+    min-height: 80vh;
     background: linear-gradient(rgba(10, 31, 68, 0.8), rgba(5, 10, 20, 0.9));
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 40px 20px;
+    padding: 20px;
     border-bottom: 5px solid var(--hustle-red);
 }
 
 .hero h1 { 
-    font-size: clamp(2.5rem, 8vw, 4rem); 
+    font-size: clamp(2.5rem, 10vw, 4rem); 
     color: white; 
     text-shadow: 3px 3px var(--hustle-red); 
     margin-bottom: 15px; 
@@ -111,15 +106,13 @@ nav {
     gap: 15px; 
 }
 
-/* Buttons */
 .btn-primary { 
     background: var(--neon-green); 
     color: var(--dark-blue) !important; 
     padding: 12px 25px; 
     border-radius: 5px; 
     font-weight: 800; 
-    text-decoration: none; 
-    display: inline-block;
+    text-decoration: none;
 }
 
 .btn-secondary { 
@@ -127,18 +120,17 @@ nav {
     color: var(--clean-white); 
     padding: 10px 23px; 
     border-radius: 5px; 
-    text-decoration: none; 
-    display: inline-block;
+    text-decoration: none;
 }
 
-/* --- Grid System --- */
+/* --- Grid & Cards --- */
 .section-title { text-align: center; margin-bottom: 40px; }
-.section-title h2 { font-size: 2rem; text-transform: uppercase; }
+.section-title h2 { font-size: 2.2rem; text-transform: uppercase; }
 
 .feature-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    gap: 20px;
 }
 
 .feature-card {
@@ -147,14 +139,12 @@ nav {
     border-radius: 15px;
     border-left: 4px solid var(--hustle-red);
     text-align: center;
-    transition: 0.3s;
+    height: 100%; /* Ensures cards in a row are same height */
 }
 
-.feature-card:hover { transform: translateY(-5px); border-left-color: var(--neon-green); }
+.feature-card i { color: var(--neon-green); font-size: 3rem; margin-bottom: 15px; }
 
-.feature-card i { color: var(--neon-green); font-size: 3rem; margin-bottom: 20px; }
-
-/* Product Images */
+/* Product Images Fix */
 .product-img-container img {
     width: 100%;
     height: 250px;
@@ -162,30 +152,11 @@ nav {
     border-radius: 8px;
 }
 
-/* --- Sourcing Banner --- */
-.sourcing-banner {
-    background: linear-gradient(45deg, var(--royal-blue), var(--hustle-red));
-    padding: 40px 20px;
-    border-radius: 20px;
-    text-align: center;
-    border: 2px solid var(--neon-green);
-}
-
-.sourcing-banner h2 { font-size: 2rem; margin-bottom: 15px; }
-
-/* --- Footer --- */
-footer {
-    background: var(--royal-blue);
-    padding: 30px 0;
-    text-align: center;
-    border-top: 2px solid var(--hustle-red);
-}
-
-/* --- WhatsApp Float --- */
+/* --- Floating WhatsApp --- */
 .whatsapp-float {
     position: fixed;
-    width: 55px;
-    height: 55px;
+    width: 60px;
+    height: 60px;
     bottom: 20px;
     right: 20px;
     background-color: #25d366;
@@ -193,62 +164,58 @@ footer {
     border-radius: 50px;
     text-align: center;
     font-size: 30px;
-    z-index: 2000;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
+    z-index: 2000;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-/* --- MOBILE RESPONSIVENESS (The Magic) --- */
+/* --- MOBILE SPECIFIC FIXES --- */
 
 @media (max-width: 768px) {
+    /* Stack Nav */
     .nav-container {
         flex-direction: column;
-        padding: 10px 0;
-    }
-
-    .nav-logo {
-        height: 60px;
-        margin-bottom: 10px;
+        gap: 10px;
     }
 
     .nav-links {
-        width: 100%;
         justify-content: center;
         flex-wrap: wrap;
+        width: 100%;
     }
 
     .nav-links li {
         margin: 5px 10px;
     }
 
-    .nav-links a {
-        font-size: 0.75rem;
-    }
-
-    .container {
-        padding: 40px 0;
-    }
-
-    /* About Page Fix: Stack columns on mobile */
-    .about-grid {
+    /* Fix Overlapping on About Page */
+    section .feature-grid[style*="grid-template-columns: 1fr 1fr"] {
         grid-template-columns: 1fr !important;
         text-align: center !important;
+    }
+
+    /* Fix Contact Page Card Sizing */
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-card {
+        padding: 20px;
+    }
+
+    .feature-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .feature-card p {
+        font-size: 0.9rem;
     }
 }
 
 @media (max-width: 480px) {
     .hero h1 { font-size: 2.2rem; }
-    .hero p { font-size: 0.95rem; }
-    
-    .feature-grid {
-        grid-template-columns: 1fr; /* Single column on small phones */
-    }
-    
-    .nav-btn {
-        padding: 6px 12px;
-        font-size: 0.7rem;
-    }
+    .section-title h2 { font-size: 1.8rem; }
 }
