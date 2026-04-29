@@ -22,52 +22,57 @@
     </nav>
 
     <section class="container">
-        <div class="text-center" style="margin-bottom: 50px;">
-            <h2 style="font-size: 2.5rem;">Accepted <span class="text-accent">Payment Methods</span></h2>
-            <p>Ensure payment is made to the verified accounts below.</p>
-        </div>
+    <div class="text-center" style="margin-bottom: 50px;">
+        <h2 style="font-size: 2.5rem;">Accepted <span class="text-accent">Payment Methods</span></h2>
+        <p>Ensure payment is made to the verified accounts below.</p>
+    </div>
 
-        <div class="feature-grid">
-            <!-- Standard Chartered -->
-            <div class="payment-card">
-                <i class="fas fa-university" style="font-size: 2rem; color: #0066cc;"></i>
-                <h3>Standard Chartered</h3>
+    <div class="feature-grid">
+        <!-- Standard Chartered -->
+        <div class="payment-card">
+            <i class="fas fa-university" style="font-size: 2rem; color: #0066cc;"></i>
+            <h3>Standard Chartered</h3>
+            <div class="acc-container">
                 <span class="acc-number" id="scAcc">0104315998200</span>
                 <button class="copy-btn" onclick="copyText('scAcc')">
                     <i class="far fa-copy"></i> Copy Number
                 </button>
             </div>
+        </div>
 
-            <!-- Airtel Money -->
-            <div class="payment-card">
-                <i class="fas fa-mobile-alt" style="font-size: 2rem; color: #ff0000;"></i>
-                <h3>Airtel Money</h3>
+        <!-- Airtel Money -->
+        <div class="payment-card">
+            <i class="fas fa-mobile-alt" style="font-size: 2rem; color: #ff0000;"></i>
+            <h3>Airtel Money</h3>
+            <div class="acc-container">
                 <span class="acc-number" id="airtelAcc">+260 772848591</span>
                 <button class="copy-btn" onclick="copyText('airtelAcc')">
                     <i class="far fa-copy"></i> Copy Number
                 </button>
             </div>
+        </div>
 
-            <!-- MTN MoMo -->
-            <div class="payment-card">
-                <i class="fas fa-money-bill-wave" style="font-size: 2rem; color: #ffcc00;"></i>
-                <h3>MTN MoMo</h3>
+        <!-- MTN MoMo -->
+        <div class="payment-card">
+            <i class="fas fa-money-bill-wave" style="font-size: 2rem; color: #ffcc00;"></i>
+            <h3>MTN MoMo</h3>
+            <div class="acc-container">
                 <span class="acc-number" id="mtnAcc">+260 764462084</span>
                 <button class="copy-btn" onclick="copyText('mtnAcc')">
                     <i class="far fa-copy"></i> Copy Number
                 </button>
             </div>
         </div>
+    </div>
 
-        <!-- Verification Alert -->
-        <div class="verification-banner">
-            <p>
-                <span class="text-red">Important:</span> Only payments reflecting the name 
-                <span class="text-accent">Kennedy Kulilishika</span> are valid.
-            </p>
-        </div>
-    </section>
-
+    <!-- Verification Alert -->
+    <div class="verification-banner" style="margin-top: 50px; padding: 25px; border: 1px dashed #ff0000; text-align: center; border-radius: 10px;">
+        <p style="text-transform: uppercase; letter-spacing: 1px;">
+            <span style="color: #ff0000; font-weight: bold;">Important:</span> Only payments reflecting the name 
+            <span class="text-accent" style="font-weight: bold; color: #00ff00;">Kennedy Kulilishika</span> are valid.
+        </p>
+    </div>
+</section>
     <footer>
         <p>&copy; 2026 9th Street Clothing. All Rights Reserved.</p>
     </footer>
@@ -89,5 +94,27 @@
             });
         }
     </script>
+    <!-- All your payment cards and section content stay above this -->
+
+    <script>
+        function copyText(id) {
+            const text = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.querySelector(`button[onclick="copyText('${id}')"]`);
+                const originalHTML = btn.innerHTML;
+                
+                // Change text and appearance
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                btn.classList.add('success');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.classList.remove('success');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
 </body>
 </html>
