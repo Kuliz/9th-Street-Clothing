@@ -22,6 +22,7 @@ body {
     overflow-x: hidden;
 }
 
+/* --- Utility Classes --- */
 .text-accent { color: var(--neon-green); font-weight: bold; }
 .text-red { color: var(--hustle-red); font-weight: bold; }
 .text-center { text-align: center; }
@@ -82,6 +83,44 @@ nav {
     font-weight: 800;
 }
 
+/* --- Hero Section --- */
+.hero {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--bg-black);
+    border-bottom: 1px solid rgba(230, 57, 70, 0.3);
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.hero-description {
+    max-width: 700px;
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    margin-bottom: 35px;
+    line-height: 1.6;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 /* --- Grid & Cards --- */
 .feature-grid {
     display: grid;
@@ -89,7 +128,7 @@ nav {
     gap: 20px;
 }
 
-.payment-card {
+.feature-card, .payment-card {
     background: var(--card-blue);
     padding: 30px;
     border-radius: 12px;
@@ -98,13 +137,48 @@ nav {
     transition: 0.3s ease;
 }
 
-.payment-card:hover {
+.feature-card:hover, .payment-card:hover {
     transform: translateY(-10px);
     border-bottom-color: var(--neon-green);
     box-shadow: 0 10px 20px rgba(57, 255, 20, 0.1);
 }
 
-/* --- Payment Components --- */
+/* --- Buttons --- */
+.btn-primary { 
+    background: var(--neon-green); 
+    color: black !important; 
+    padding: 12px 28px; 
+    border-radius: 5px; 
+    font-weight: 800; 
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.btn-outline {
+    border: 2px solid var(--clean-white);
+    color: var(--clean-white);
+    padding: 12px 28px;
+    border-radius: 5px;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: var(--clean-white);
+    color: black;
+    transform: translateY(-3px);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(57, 255, 20, 0.4);
+}
+
+/* --- Payment Specific Components --- */
 .acc-container {
     margin-top: 15px;
     display: flex;
@@ -139,7 +213,7 @@ nav {
     background: transparent !important;
 }
 
-/* --- Verification & Footer --- */
+/* --- Verification Banner --- */
 .verification-banner {
     margin-top: 50px; 
     padding: 25px; 
@@ -150,6 +224,7 @@ nav {
     letter-spacing: 1px;
 }
 
+/* --- Footer --- */
 footer {
     padding: 40px 0;
     text-align: center;
