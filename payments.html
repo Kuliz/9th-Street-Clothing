@@ -3,91 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payments | 9th Street Clothing</title>
-    <link rel="icon" type="image/png" href="9th street sign.png">
+    <title>Payment Methods | 9th Street</title>
+    <link rel="icon" type="image/png" href="9th street sign.png"> 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <nav>
         <div class="nav-container">
-            <div class="logo-container">
-                <a href="index.html"><img src="9th street sign.png" class="nav-logo" alt="9th Street"></a>
-            </div>
-            <div class="menu-toggle" id="mobile-menu">
-                <span></span><span></span><span></span>
-            </div>
+            <a href="index.html"><img src="9th street sign.png" class="nav-logo"></a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="products.html">Products</a></li>
                 <li><a href="payments.html" class="active">Payments</a></li>
-                <li><a href="about.html">Story</a></li>
-                <li><a href="contact.html" class="nav-btn">Order</a></li>
+                <li><a href="contact.html" class="nav-btn">Order Now</a></li>
             </ul>
         </div>
     </nav>
 
     <section class="container">
-        <div style="margin-bottom: 50px;">
-            <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800;">Accepted <span class="text-accent">Payment Methods</span></h1>
-            <p style="font-size: 1.1rem; color: #ccc;">Ensure payment is made to the verified accounts below.</p>
-        </div>
+    <div class="text-center" style="margin-bottom: 50px;">
+        <h2 style="font-size: 2.5rem;">Accepted <span class="text-accent">Payment Methods</span></h2>
+        <p>Ensure payment is made to the verified accounts below.</p>
+    </div>
 
-        <div class="feature-grid">
-            <!-- Bank Card -->
-            <div class="feature-card" style="border-bottom-color: #0066cc;">
-                <i class="fas fa-university" style="font-size: 3rem; color: #0066cc; margin-bottom: 20px;"></i>
-                <h3>Standard Chartered</h3>
-                <div class="copy-box">
-                    <span id="bank-acc">0104315998200</span>
-                    <button onclick="copyText('bank-acc')" class="copy-btn"><i class="far fa-copy"></i> Copy</button>
-                </div>
-                <p style="margin-top: 15px; font-size: 0.9rem; color: #888;">Name: <span style="color: var(--neon-green);">Kennedy Kulilishika</span></p>
-            </div>
-
-            <!-- Airtel Card -->
-            <div class="feature-card" style="border-bottom-color: #ff0000;">
-                <i class="fas fa-mobile-alt" style="font-size: 3rem; color: #ff0000; margin-bottom: 20px;"></i>
-                <h3>Airtel Money</h3>
-                <div class="copy-box">
-                    <span id="airtel-num">+260 772848591</span>
-                    <button onclick="copyText('airtel-num')" class="copy-btn"><i class="far fa-copy"></i> Copy</button>
-                </div>
-            </div>
-
-            <!-- MTN Card -->
-            <div class="feature-card" style="border-bottom-color: #ffcc00;">
-                <i class="fas fa-money-bill-wave" style="font-size: 3rem; color: #ffcc00; margin-bottom: 20px;"></i>
-                <h3>MTN MoMo</h3>
-                <div class="copy-box">
-                    <span id="mtn-num">+260 764462084</span>
-                    <button onclick="copyText('mtn-num')" class="copy-btn"><i class="far fa-copy"></i> Copy</button>
-                </div>
+    <div class="feature-grid">
+        <!-- Standard Chartered -->
+        <div class="payment-card">
+            <i class="fas fa-university" style="font-size: 2rem; color: #0066cc;"></i>
+            <h3>Standard Chartered</h3>
+            <div class="acc-container">
+                <span class="acc-number" id="scAcc">0104315998200</span>
+                <button class="copy-btn" onclick="copyText('scAcc')">
+                    <i class="far fa-copy"></i> Copy Number
+                </button>
             </div>
         </div>
 
-        <div style="margin-top: 40px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 8px;">
-            <p><strong>Important:</strong> Only payments reflecting the name <span style="color: var(--neon-green);">Kennedy Kulilishika</span> are valid.</p>
+        <!-- Airtel Money -->
+        <div class="payment-card">
+            <i class="fas fa-mobile-alt" style="font-size: 2rem; color: #ff0000;"></i>
+            <h3>Airtel Money</h3>
+            <div class="acc-container">
+                <span class="acc-number" id="airtelAcc">+260 772848591</span>
+                <button class="copy-btn" onclick="copyText('airtelAcc')">
+                    <i class="far fa-copy"></i> Copy Number
+                </button>
+            </div>
         </div>
-    </section>
 
+        <!-- MTN MoMo -->
+        <div class="payment-card">
+            <i class="fas fa-money-bill-wave" style="font-size: 2rem; color: #ffcc00;"></i>
+            <h3>MTN MoMo</h3>
+            <div class="acc-container">
+                <span class="acc-number" id="mtnAcc">+260 764462084</span>
+                <button class="copy-btn" onclick="copyText('mtnAcc')">
+                    <i class="far fa-copy"></i> Copy Number
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Verification Alert -->
+    <div class="verification-banner" style="margin-top: 50px; padding: 25px; border: 1px dashed #ff0000; text-align: center; border-radius: 10px;">
+        <p style="text-transform: uppercase; letter-spacing: 1px;">
+            <span style="color: #ff0000; font-weight: bold;">Important:</span> Only payments reflecting the name 
+            <span class="text-accent" style="font-weight: bold; color: #00ff00;">Kennedy Kulilishika</span> are valid.
+        </p>
+    </div>
+</section>
     <footer>
         <p>&copy; 2026 9th Street Clothing. All Rights Reserved.</p>
     </footer>
 
     <script>
-        // Mobile Menu Toggle
-        const menu = document.querySelector('#mobile-menu');
-        const menuLinks = document.querySelector('.nav-links');
-        menu.addEventListener('click', () => menuLinks.classList.toggle('active'));
-
-        // Copy Function
         function copyText(id) {
             const text = document.getElementById(id).innerText;
             navigator.clipboard.writeText(text).then(() => {
-                alert("Number copied to clipboard: " + text);
+                // Visual feedback
+                const btn = document.querySelector(`button[onclick="copyText('${id}')"]`);
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                btn.style.borderColor = "var(--neon-green)";
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.borderColor = "";
+                }, 2000);
             });
         }
     </script>
+    <!-- All your payment cards and section content stay above this -->
+
+    <script>
+        function copyText(id) {
+            const text = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.querySelector(`button[onclick="copyText('${id}')"]`);
+                const originalHTML = btn.innerHTML;
+                
+                // Change text and appearance
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                btn.classList.add('success');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.classList.remove('success');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
 </body>
 </html>
