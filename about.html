@@ -55,5 +55,13 @@
     <footer>
         <p>&copy; 2026 9th Street Clothing. All Rights Reserved.</p>
     </footer>
+    <script>
+    const menu = document.querySelector('#mobile-menu');
+    const menuLinks = document.querySelector('.nav-links');
+
+    menu.addEventListener('click', function() {
+        menuLinks.classList.toggle('active');
+    });
+</script>
 </body>
 </html>
