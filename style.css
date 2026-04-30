@@ -187,3 +187,35 @@ footer {
     padding: 40px 20px;
     border-top: 1px solid #333;
 }
+/* Payment Specific Styles */
+.copy-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #000;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: 1px solid #333;
+}
+
+.copy-btn {
+    background: var(--hustle-red);
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: 0.2s;
+}
+
+.copy-btn:active {
+    transform: scale(0.95);
+}
+
+.copy-box span {
+    font-family: monospace;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
