@@ -225,5 +225,13 @@
         document.getElementById('productSearch').addEventListener('input', (e) => displayProducts(e.target.value));
         window.onload = () => displayProducts();
     </script>
+    <script>
+    const menu = document.querySelector('#mobile-menu');
+    const menuLinks = document.querySelector('.nav-links');
+
+    menu.addEventListener('click', function() {
+        menuLinks.classList.toggle('active');
+    });
+</script>
 </body>
 </html>
