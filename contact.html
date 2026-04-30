@@ -70,5 +70,13 @@
     <a href="https://wa.me/260764462084" class="whatsapp-float" target="_blank" style="position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; display: flex; align-items: center; justify-content: center; text-decoration: none; z-index: 2000;">
         <i class="fab fa-whatsapp"></i>
     </a>
+    <script>
+    const menu = document.querySelector('#mobile-menu');
+    const menuLinks = document.querySelector('.nav-links');
+
+    menu.addEventListener('click', function() {
+        menuLinks.classList.toggle('active');
+    });
+</script>
 </body>
 </html>
