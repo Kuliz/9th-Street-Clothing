@@ -123,27 +123,16 @@
 </head>
 <body>
     <nav>
-    <div class="nav-container">
-        <div class="logo-container">
-            <a href="index.html"><img src="9th street sign.png" class="nav-logo" alt="9th Street"></a>
+        <div class="nav-container">
+            <a href="index.html"><img src="9th street sign.png" class="nav-logo"></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="payments.html">Payments</a></li>
+                <li><a href="contact.html" class="nav-btn">Order Now</a></li>
+            </ul>
         </div>
-        
-        <!-- Mobile Menu Toggle -->
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="payments.html">Payments</a></li>
-            <li><a href="about.html">Story</a></li>
-            <li><a href="contact.html" class="nav-btn">Order</a></li>
-        </ul>
-    </div>
-</nav>
+    </nav>
 
     <div class="container">
         <!-- Search Bar -->
@@ -168,6 +157,26 @@
             </div>
             <div class="feature-grid" id="threads-grid"></div>
         </section>
+
+        <hr class="divider">
+
+        <!-- Assorted tee vault -->
+        <section class="vault-section">
+            <div class="section-title">
+                <h2>Assorted Tee <span class="text-accent">Vault</span></h2>
+            </div>
+            <div class="feature-grid" id="tee-grid"></div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ACCESSORIES VAULT -->
+        <section class="vault-section">
+            <div class="section-title">
+                <h2>Accessories <span class="text-accent">Vault</span></h2>
+            </div>
+            <div class="feature-grid" id="accessories-grid"></div>
+        </section>
     </div>
 
     <script>
@@ -175,6 +184,7 @@
             { name: "Yeezy slide", price: "K 200", img: "ys.png" },
             { name: "Classic crocs", price: "K 300", img: "cc.png" },
             { name: "Bayaband crocs", price: "K 250", img: "bc.png" },
+            { name: "Yukon Vista II Clogs", price: "K 280", img: "yv.png" },
             { name: "Adidas adilette", price: "K 250", img: "as.png" },
             { name: "Nike benassi", price: "K 250", img: "ns.png" },
             { name: "Air jordan 1", price: "K 450", img: "j1h.png" },
@@ -193,16 +203,52 @@
             { name: "PalmAngles brown", price: "K 200", img: "pabr.png" },
             { name: "PalmAngles white", price: "K 200", img: "paw.png" },
             { name: "Trapstar brown", price: "K 200", img: "tsb.png" },
+            { name: "Bape miami pink ", price: "K 200", img: "pbt.png" },
+            { name: "Bape miami black", price: "K 200", img: "bbt.png" },
             { name: "Trapstar white", price: "K 200", img: "tsw.png"}
+        ];
+
+        const tee = [
+            { name: "Newyork(A)", price: "K 200", img: "1.jpeg" },
+            { name: "ChromeHearts(A)", price: "K 200", img: "2.jpeg" },
+            { name: "Nike(A)", price: "K 200", img: "3.jpeg" },
+            { name: "Newyork(B)", price: "K 200", img: "4.jpeg" },
+            { name: "GAP", price: "K 200", img: "5.jpeg" },
+            { name: "Bape", price: "K 200", img: "6.jpeg" },
+            { name: "ChromeHearts(B)", price: "K 200", img: "7.jpeg" },
+            { name: "Cactus Jack(A)", price: "K 200", img: "8.jpeg" },
+            { name: "ChromeHearts(C)", price: "K 200", img: "9.jpeg" },
+            { name: "ChromeHearts(D)", price: "K 200", img: "10.jpeg" },
+            { name: "Corteiz", price: "K 200", img: "11.jpeg" },
+            { name: "Supreme", price: "K 200", img: "12.jpeg" },
+            { name: "Cactus Jack(B)", price: "K 200", img: "13.jpeg" },
+            { name: "Nasa", price: "K 200", img: "14.jpeg" },
+            { name: "Trapstar", price: "K 200", img: "15.jpeg" },
+            { name: "Sume", price: "K 200", img: "16.jpeg"}
+        ];
+
+        const accessories = [
+            { name: "Los Angeles red", price: "K 180", img: "A.png" },
+            { name: "Los Angeles grey", price: "K 180", img: "AA.png" },
+            { name: "Los Angeles blue", price: "K 180", img: "LA.png" },
+            { name: "Philadelphia Phillies", price: "K 180", img: "P.png" },
+            { name: "Chicago White Sox", price: "K 180", img: "sx.png" },
+            { name: "New York Yankees", price: "K 180", img: "NY.png" }
         ];
 
         function displayProducts(filter = "") {
             const fGrid = document.getElementById('footwear-grid');
             const tGrid = document.getElementById('threads-grid');
+            const teeGrid = document.getElementById('tee-grid');
+            const accGrid = document.getElementById('accessories-grid');
+            
             const searchLower = filter.toLowerCase();
 
+            // Clear all grids
             fGrid.innerHTML = "";
             tGrid.innerHTML = "";
+            teeGrid.innerHTML = "";
+            accGrid.innerHTML = "";
 
             const createCard = (p) => `
                 <div class="feature-card">
@@ -212,26 +258,28 @@
                     <a href="https://wa.me/260764462084?text=I'd like to buy ${p.name}" class="btn-primary">Order via WA</a>
                 </div>`;
 
+            // Filter and Render
             const filteredKicks = kicks.filter(p => p.name.toLowerCase().includes(searchLower));
             filteredKicks.forEach(p => fGrid.innerHTML += createCard(p));
 
             const filteredThreads = threads.filter(p => p.name.toLowerCase().includes(searchLower));
             filteredThreads.forEach(p => tGrid.innerHTML += createCard(p));
+
+            const filteredTees = tee.filter(p => p.name.toLowerCase().includes(searchLower));
+            filteredTees.forEach(p => teeGrid.innerHTML += createCard(p));
+
+            const filteredAcc = accessories.filter(p => p.name.toLowerCase().includes(searchLower));
+            filteredAcc.forEach(p => accGrid.innerHTML += createCard(p));
             
+            // Toggle Section Visibility
             fGrid.parentElement.style.display = filteredKicks.length ? "block" : "none";
             tGrid.parentElement.style.display = filteredThreads.length ? "block" : "none";
+            teeGrid.parentElement.style.display = filteredTees.length ? "block" : "none";
+            accGrid.parentElement.style.display = filteredAcc.length ? "block" : "none";
         }
 
         document.getElementById('productSearch').addEventListener('input', (e) => displayProducts(e.target.value));
         window.onload = () => displayProducts();
     </script>
-    <script>
-    const menu = document.querySelector('#mobile-menu');
-    const menuLinks = document.querySelector('.nav-links');
-
-    menu.addEventListener('click', function() {
-        menuLinks.classList.toggle('active');
-    });
-</script>
 </body>
 </html>
