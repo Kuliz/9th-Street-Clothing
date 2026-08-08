@@ -10,39 +10,33 @@
 </head>
 <body>
     <nav>
-    <div class="nav-container">
-        <div class="logo-container">
-            <a href="index.html"><img src="9th street sign.png" class="nav-logo" alt="9th Street"></a>
+        <div class="nav-container">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="9th street sign.png" alt="9th Street Clothing" class="nav-logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="payments.html">Payments</a></li>
+                <li><a href="about.html">Story</a></li>
+                <li><a href="contact.html" class="nav-btn">Order</a></li>
+                <li><button class="cart-toggle" type="button"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-badge" id="cartCount">0</span></button></li>
+            </ul>
         </div>
-        
-        <!-- Mobile Menu Toggle -->
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="payments.html">Payments</a></li>
-            <li><a href="about.html">Story</a></li>
-            <li><a href="contact.html" class="nav-btn">Order</a></li>
-        </ul>
-    </div>
-</nav>
+    </nav>
 
     <header class="hero">
-    <div class="container hero-content">
-        <h1>Dress Your <span class="text-accent">Grind</span></h1>
-        <p class="hero-description">Premium footwear and street apparel designed for those who never stop moving. From the local scene to global sourcing, we bring the drip to Lusaka.</p>
-        
-        <div class="hero-btns">
-            <a href="products.html" class="btn-primary">Shop Collection</a>
-            <a href="about.html" class="btn-outline">Learn More</a>
+        <div class="hero-content">
+            <h1>Professional Streetwear, <span class="text-accent">Built for Respect</span></h1>
+            <p>Premium footwear and apparel curated for clients who value quality, style, and a polished shopping experience. From capsule essentials to statement pieces, 9th Street Clothing delivers with confidence.</p>
+            <div class="hero-btns">
+                <a href="products.html" class="btn-primary">Shop Collection</a>
+                <a href="about.html" class="btn-secondary">Learn More</a>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
     <section class="features container">
         <div class="section-title" style="text-align: center; margin-bottom: 40px;">
@@ -67,20 +61,81 @@
         </div>
     </section>
 
+    <section class="container premium-section">
+        <div class="section-title">
+            <h2>Why Clients <span class="text-accent">Choose Us</span></h2>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card premium-card">
+                <span class="badge">Best Seller</span>
+                <h3>Premium Essentials</h3>
+                <p>Elevated staples for everyday confidence, from clean sneakers to refined streetwear that turns heads.</p>
+                <a href="products.html" class="btn-primary">Browse Essentials</a>
+            </div>
+            <div class="feature-card premium-card">
+                <span class="badge">Trusted Checkout</span>
+                <h3>Fast WhatsApp Orders</h3>
+                <p>Place your order quickly through a direct, personal checkout experience built for convenience.</p>
+                <a href="contact.html" class="btn-secondary">Start Your Order</a>
+            </div>
+            <div class="feature-card premium-card">
+                <span class="badge">Professional Support</span>
+                <h3>Service With Respect</h3>
+                <p>Every order is handled with care, clarity, and a level of professionalism your brand deserves.</p>
+                <a href="payments.html" class="btn-secondary">View Payments</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="container trust-section">
+        <div class="section-title">
+            <h2>Trusted by <span class="text-accent">Modern Shoppers</span></h2>
+        </div>
+        <div class="trust-strip">
+            <div class="trust-pill"><i class="fas fa-star"></i> 4.9/5 average rating</div>
+            <div class="trust-pill"><i class="fas fa-truck-fast"></i> Fast delivery in Lusaka</div>
+            <div class="trust-pill"><i class="fas fa-shield-alt"></i> Secure and direct orders</div>
+        </div>
+        <div class="testimonial-grid">
+            <article class="testimonial-card">
+                <p>“The experience felt premium from the first click. Delivery and communication were excellent.”</p>
+                <strong>— N. Chirwa</strong>
+            </article>
+            <article class="testimonial-card">
+                <p>“The checkout was quick, the product selection was clean, and the service felt very professional.”</p>
+                <strong>— L. Mulenga</strong>
+            </article>
+            <article class="testimonial-card">
+                <p>“Everything looked polished and easy to understand. I ordered without any hassle.”</p>
+                <strong>— T. Banda</strong>
+            </article>
+        </div>
+    </section>
+
     <footer>
         <p>&copy; 2026 9th Street Clothing. Designed for the Hustle. All Rights Reserved.</p>
     </footer>
 
-    <a href="https://wa.me/260764462084" class="whatsapp-float" target="_blank" style="position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; display: flex; align-items: center; justify-content: center; text-decoration: none; z-index: 2000;">
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-header">
+            <h3>Your Cart</h3>
+            <button class="qty-btn" id="closeCartBtn" type="button">Close</button>
+        </div>
+        <div class="cart-drawer-body" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal</span>
+                <span id="cartSubtotal">K 0</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn" type="button">Checkout on WhatsApp</button>
+        </div>
+    </aside>
+
+    <a href="https://wa.me/260772848591" class="whatsapp-float" target="_blank" style="position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; display: flex; align-items: center; justify-content: center; text-decoration: none; z-index: 2000;">
         <i class="fab fa-whatsapp"></i>
     </a>
-    <script>
-    const menu = document.querySelector('#mobile-menu');
-    const menuLinks = document.querySelector('.nav-links');
 
-    menu.addEventListener('click', function() {
-        menuLinks.classList.toggle('active');
-    });
-</script>
+    <script src="site.js"></script>
 </body>
 </html>
