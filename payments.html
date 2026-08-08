@@ -17,6 +17,7 @@
                 <li><a href="products.html">Products</a></li>
                 <li><a href="payments.html" class="active">Payments</a></li>
                 <li><a href="contact.html" class="nav-btn">Order Now</a></li>
+                <li><button class="cart-toggle" type="button"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-badge" id="cartCount">0</span></button></li>
             </ul>
         </div>
     </nav>
@@ -73,6 +74,22 @@
         </p>
     </div>
 </section>
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-header">
+            <h3>Your Cart</h3>
+            <button class="qty-btn" id="closeCartBtn" type="button">Close</button>
+        </div>
+        <div class="cart-drawer-body" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal</span>
+                <span id="cartSubtotal">K 0</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn" type="button">Checkout on WhatsApp</button>
+        </div>
+    </aside>
+
     <footer>
         <p>&copy; 2026 9th Street Clothing. All Rights Reserved.</p>
     </footer>
@@ -81,32 +98,10 @@
         function copyText(id) {
             const text = document.getElementById(id).innerText;
             navigator.clipboard.writeText(text).then(() => {
-                // Visual feedback
-                const btn = document.querySelector(`button[onclick="copyText('${id}')"]`);
-                const originalText = btn.innerHTML;
-                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-                btn.style.borderColor = "var(--neon-green)";
-                
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.style.borderColor = "";
-                }, 2000);
-            });
-        }
-    </script>
-    <!-- All your payment cards and section content stay above this -->
-
-    <script>
-        function copyText(id) {
-            const text = document.getElementById(id).innerText;
-            navigator.clipboard.writeText(text).then(() => {
                 const btn = document.querySelector(`button[onclick="copyText('${id}')"]`);
                 const originalHTML = btn.innerHTML;
-                
-                // Change text and appearance
                 btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
                 btn.classList.add('success');
-                
                 setTimeout(() => {
                     btn.innerHTML = originalHTML;
                     btn.classList.remove('success');
@@ -114,7 +109,6 @@
             });
         }
     </script>
-</body>
-</html>
+    <script src="site.js"></script>
 </body>
 </html>
