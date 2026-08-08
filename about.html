@@ -10,27 +10,20 @@
 </head>
 <body>
     <nav>
-    <div class="nav-container">
-        <div class="logo-container">
-            <a href="index.html"><img src="9th street sign.png" class="nav-logo" alt="9th Street"></a>
+        <div class="nav-container">
+            <div class="logo-container">
+                <a href="index.html"><img src="9th street sign.png" class="nav-logo"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="payments.html">Payments</a></li>
+                <li><a href="about.html" class="active">Our Story</a></li>
+                <li><a href="contact.html" class="nav-btn">Order Now</a></li>
+                <li><button class="cart-toggle" type="button"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-badge" id="cartCount">0</span></button></li>
+            </ul>
         </div>
-        
-        <!-- Mobile Menu Toggle -->
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="payments.html">Payments</a></li>
-            <li><a href="about.html">Story</a></li>
-            <li><a href="contact.html" class="nav-btn">Order</a></li>
-        </ul>
-    </div>
-</nav>
+    </nav>
 
     <section class="container">
         <div class="section-title" style="text-align: center; margin-bottom: 40px;">
@@ -52,16 +45,26 @@
         </div>
     </section>
 
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-header">
+            <h3>Your Cart</h3>
+            <button class="qty-btn" id="closeCartBtn" type="button">Close</button>
+        </div>
+        <div class="cart-drawer-body" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal</span>
+                <span id="cartSubtotal">K 0</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn" type="button">Checkout on WhatsApp</button>
+        </div>
+    </aside>
+
     <footer>
         <p>&copy; 2026 9th Street Clothing. All Rights Reserved.</p>
     </footer>
-    <script>
-    const menu = document.querySelector('#mobile-menu');
-    const menuLinks = document.querySelector('.nav-links');
 
-    menu.addEventListener('click', function() {
-        menuLinks.classList.toggle('active');
-    });
-</script>
+    <script src="site.js"></script>
 </body>
 </html>
